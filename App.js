@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 const App = () => {
 
     return (
-            <NavigationContainer styles={styles.mainPage}>
+            <NavigationContainer>
                 <Stack.Navigator>
                     <Stack.Screen name={'MainScreen'} component={MainScreen}/>
                     <Stack.Screen name={'Peoples'} component={Peoples}/>

@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
     film: {
         color: '#52aed3',
         fontSize: 24,
-        letterSpacing: 1.4
+        letterSpacing: 1.4,
     }
 });
