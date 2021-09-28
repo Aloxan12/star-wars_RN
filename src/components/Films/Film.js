@@ -23,13 +23,40 @@ export const Film = ({route, navigation}) => {
 
 
     return (
-        <View style={{flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}}>
+        <View style={styles.container}>
             {loading ? <Text>Loading...</Text> :
-                <View>
-                    <Text>Title: {film.title}</Text>
+                <View style={styles.block}>
+                    <Text style={styles.title}>{film.title}</Text>
                     <Text>Description: {film.opening_crawl}</Text>
+                    <Text>Director: {film.director}</Text>
+                    <Text>Release date: {film.release_date}</Text>
                 </View>}
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection:'column',
+        justifyContent: "center",
+        alignItems: 'center'
+    },
+    block:{
+        flex: 1,
+        width: '80%',
+        flexDirection: 'column',
+        alignItems: "center",
+        justifyContent: "space-around",
+        borderStyle: "solid",
+        marginTop: 20,
+        marginBottom: 20,
+        borderWidth: 2,
+        borderColor: '#ccc',
+        borderRadius: 10
+    },
+    title:{
+        fontSize: 24,
+    },
+});
 

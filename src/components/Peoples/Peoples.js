@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderWidth: 2,
         borderColor: '#ccc',
-        borderRadius: 3
+        borderRadius: 10
     },
     people: {
         color: '#52aed3',

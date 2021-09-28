@@ -21,7 +21,7 @@ export const Films = ({navigation}) => {
     }, [])
 
     return (
-        <View style={{flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}}>
+        <View style={styles.container}>
             {loading ? <Text>Loading...</Text> :
             <View style={styles.filmsBlock}>{films.map((f, i)=>{
                 return <Text onPress={()=> navigation.navigate('Film', {id: i + 1})} style={styles.film} key={i}>{f.title}</Text>
@@ -30,11 +30,27 @@ export const Films = ({navigation}) => {
     );
 };
 const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
     filmsBlock: {
         flex: 1,
+        width: '80%',
         flexDirection: 'column',
+        alignItems: "center",
+        justifyContent: "space-around",
+        borderStyle: "solid",
+        marginTop: 20,
+        marginBottom: 20,
+        borderWidth: 2,
+        borderColor: '#ccc',
+        borderRadius: 10
     },
     film: {
-        paddingVertical: 20,
+        color: '#52aed3',
+        fontSize: 24,
+        letterSpacing: 1.4
     }
 });
