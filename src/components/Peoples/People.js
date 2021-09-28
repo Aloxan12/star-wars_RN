@@ -4,13 +4,12 @@ import {fetch} from "react-native/Libraries/Network/fetch";
 import {useRoute} from "@react-navigation/native";
 
 export const People = ({route}) => {
-    const {id} = route.params
+    const {url} = route.params
     const [people, setPeople] = useState({})
     const [loading, setLoading] = useState(true)
 
 
 
-    const url = `https://swapi.dev/api/people/${id}`
 
     useEffect( ()=>{
         async function fetchPeople(){

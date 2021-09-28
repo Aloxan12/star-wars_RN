@@ -27,12 +27,6 @@ const App = () => {
     );
 };
 
-const styles = StyleSheet.create({
-    mainPage: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems:"center"
-    }
-});
+const styles = StyleSheet.create({});
 
 export default App;

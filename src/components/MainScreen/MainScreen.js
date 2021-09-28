@@ -4,10 +4,13 @@ import {Button, StyleSheet, View} from "react-native";
 
 
 export const MainScreen = ({navigation}) => {
+
+
+
     return (
         <View style={styles.mainBlock}>
-            <Button title={'Films'} style={styles.button} onPress={()=>navigation.navigate('Films')} />
-            <Button title={'Peoples'} style={styles.button} onPress={()=>navigation.navigate('Peoples')} />
+            <Button title={'Films'} onPress={()=>navigation.navigate('Films',)} />
+            <Button title={'Peoples'} onPress={()=>navigation.navigate('Peoples')} />
         </View>
     );
 };
@@ -18,6 +21,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection:'row',
         justifyContent: "space-around",
-        alignItems:"flex-start"
+        alignItems:"flex-start",
+        paddingVertical: 30,
     },
 });

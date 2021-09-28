@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Button, StyleSheet, Text, View} from "react-native";
 import {fetch} from "react-native/Libraries/Network/fetch";
+import {useHover} from "native-base/lib/typescript/components/primitives/Pressable/Pressable";
 
 export const Peoples = ({navigation}) => {
     const [peoples, setPeoples] = useState([])
@@ -21,9 +22,7 @@ export const Peoples = ({navigation}) => {
             setLoading(false)
         }
         fetchPeople()
-        return ()=>{
-            return currentPage
-        }
+
     }, [currentPage])
 
     const nextButton =()=>{
@@ -38,12 +37,12 @@ export const Peoples = ({navigation}) => {
     }
 
     return (
-        <View style={{flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start'}}>
+        <View style={styles.container}>
             {loading ? <Text>Loading...</Text> :
             <View style={styles.peopleBlock}>{peoples.map((p, i)=>{
-                return <Text style={styles.people} onPress={()=> navigation.navigate('People', {id:i + 1})} key={i}>{p.name}</Text>
+                return <Text style={styles.people} onPress={()=> navigation.navigate('People', {url: p.url})} key={i}>{p.name}</Text>
             })}</View>}
-            <View>
+            <View style={styles.btn}>
                 <Button title={'prev'} onPress={prevButton} />
                 <Button title={'next'} onPress={nextButton} />
             </View>
@@ -52,11 +51,34 @@ export const Peoples = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
     peopleBlock: {
         flex: 1,
+        width: '80%',
         flexDirection: 'column',
+        alignItems: "center",
+        justifyContent: "space-around",
+        borderStyle: "solid",
+        marginTop: 20,
+        marginBottom: 20,
+        borderWidth: 2,
+        borderColor: '#ccc',
+        borderRadius: 3
     },
     people: {
-        paddingVertical: 7,
+        color: '#52aed3',
+        fontSize: 24,
+        letterSpacing: 1.4
+    },
+    btn:{
+        width: '100%',
+        alignSelf: 'center',
+        flexDirection: "row",
+        justifyContent: "space-around",
+        marginBottom: 10
     }
 });
