@@ -22,7 +22,7 @@ export const Peoples = ({navigation}) => {
             setLoading(false)
         }
         fetchPeople()
-
+        return ()=>currentPage
     }, [currentPage])
 
     const nextButton =()=>{

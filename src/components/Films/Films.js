@@ -18,6 +18,7 @@ export const Films = ({navigation}) => {
             setLoading(false)
         }
         fetchFilms()
+        return ()=>{}
     }, [])
 
     return (
